@@ -150,10 +150,10 @@
                 end: current.clone().month(period - 1).endOf('month')
             })
         });
-        
+
         var min = $picker.data('min');
         var max = $picker.data('max');
-        
+
         $('.period-picker-body button', $popover).each(function () {
             var value = $(this).data('value');
             $(this).prop('disabled', (min && value.start.isBefore(min)) || (max && value.end.isAfter(max)))
@@ -178,7 +178,7 @@
 
     // Merge and validate setting.
     var getSettings = function (options) {
-        var settings = $.extend($.fn.periodPickerDefaults, options);
+        var settings = $.extend({}, $.fn.periodPickerDefaults, options);
 
         if (settings.year) {
             if (!moment(settings.year, 'YYYY', true).isValid()) {

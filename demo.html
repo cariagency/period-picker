@@ -62,7 +62,11 @@
                             yearName: 'Année complète',
                             quarterName: 'T',
                             prevTemplate: '<i class="fa fa-arrow-left"></i>',
-                            nextTemplate: '<i class="fa fa-arrow-right"></i>'
+                            nextTemplate: '<i class="fa fa-arrow-right"></i>',
+                            pick: function (value) {
+                                $('#output').text('// start and end keys contain a moment.js object\n' + JSON.stringify(value, null, 4));
+                                return true;
+                            }
                         });
                     });
                 }(jQuery));

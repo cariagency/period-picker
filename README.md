@@ -116,7 +116,40 @@ Example :
 }(jQuery));
 ```
 
+## Theming.
+
+Followin options allows you to customize some elements of the picker :
+
+```
+// Year button title.
+yearName: 'Whole year',
+
+// String to populate semester buttons.
+semesterName: 'S',
+
+// String to populate quarter buttons.
+quarterName: 'Q',
+
+// Buttons class.
+btnClass: 'btn btn-primary',
+
+// Previous year button content.
+prevTemplate: '&lt;&lt;',
+
+// Next year button content.
+nextTemplate: '&gt;&gt;',
+```
+
+The plugin also insert following CSS classes on generated element to ease theming :
+
++ period-picker-button : the element triggering the picker.
++ period-picker-popover : the picker popover
++ period-picker-title : the popover title container
++ period-picker-body : the popover body container
+
 ## Default options.
+
+Here is the full list of periodPicker options and their default values :
 
 ```js
 $.fn.periodPickerDefaults = {
