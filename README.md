@@ -140,12 +140,10 @@ prevTemplate: '&lt;&lt;',
 nextTemplate: '&gt;&gt;',
 ```
 
-The plugin also insert following CSS classes on generated element to ease theming :
+The plugin inserts following CSS classes on generated element to ease theming :
 
-+ period-picker-button : the element triggering the picker.
-+ period-picker-popover : the picker popover
-+ period-picker-title : the popover title container
-+ period-picker-body : the popover body container
++ **.period-picker-button** : the element triggering the picker.
++ **.period-picker-popover** : the picker popover.
 
 ## Default options.
 

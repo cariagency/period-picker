@@ -30,13 +30,13 @@
         // Next year button content.
         nextTemplate: '&gt;&gt;',
         // Popover title template
-        titleTemplate: '<div class="period-picker-title">\
+        titleTemplate: '<div class="inner">\
             <a href="#" class="period-picker-prev">%P</a>\
             <div class="year"></div>\
             <a href="#" class="period-picker-next">%N</a>\
         </div>',
         // Popover body template.
-        bodyTemplate: '<div class="period-picker-body">\
+        bodyTemplate: '<div class="inner">\
             <div class="year">\
                 <div>\
                     <button class="%C">%Y</button>\
@@ -106,19 +106,19 @@
     };
 
     // Manage picker content.
-    var refresh = function ($picker, $popover, settings) {
+    var refresh = function ($picker, $popover) {
         var current = $picker.data('current');
 
-        $('.period-picker-title .year', $popover).text(current.format('YYYY'));
+        $('.popover-header .year', $popover).text(current.format('YYYY'));
 
-        $('.period-picker-body .year button', $popover).data('value', {
+        $('.popover-body > .inner .year button', $popover).data('value', {
             type: 'year',
             year: current.format('YYYY'),
             start: current.clone(),
             end: current.clone().endOf('year')
         });
 
-        $('.period-picker-body .semester button', $popover).each(function () {
+        $('.popover-body > .inner .semester button', $popover).each(function () {
             var period = parseInt($(this).data('period'));
             $(this).data('value', {
                 type: 'semester',
@@ -129,7 +129,7 @@
             })
         });
 
-        $('.period-picker-body .quarter button', $popover).each(function () {
+        $('.popover-body > .inner .quarter button', $popover).each(function () {
             var period = parseInt($(this).data('period'));
             $(this).data('value', {
                 type: 'quarter',
@@ -140,7 +140,7 @@
             })
         });
 
-        $('.period-picker-body .month button', $popover).each(function () {
+        $('.popover-body > .inner .month button', $popover).each(function () {
             var period = parseInt($(this).data('period'));
             $(this).data('value', {
                 type: 'month',
@@ -154,7 +154,7 @@
         var min = $picker.data('min');
         var max = $picker.data('max');
 
-        $('.period-picker-body button', $popover).each(function () {
+        $('.popover-body > .inner button', $popover).each(function () {
             var value = $(this).data('value');
             $(this).prop('disabled', (min && value.start.isBefore(min)) || (max && value.end.isAfter(max)))
         });
@@ -287,7 +287,7 @@
                     .on('shown.bs.popover', function () {
                         refresh($picker, $popover);
 
-                        $('.period-picker-body button', $popover).click(function () {
+                        $('.popover-body > .inner button', $popover).click(function () {
                             if (settings.pick($(this).data('value'), $picker, $popover) !== true) {
                                 $picker.popover('hide');
                             }

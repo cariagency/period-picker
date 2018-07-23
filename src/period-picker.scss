@@ -1,47 +1,56 @@
-#period-picker-template{ 
-    display: none;
-}
-
-.period-picker-title{
-    display: flex;
-    align-items: center;
-
-    .year{
-        flex-grow: 1;
-        text-align: center;
-        font-weight: bold;
-    }
-
-    a{
-        font-size: 20px;
-    }
-}
-
-.period-picker-body{
-    > div + div{
-        margin-top: 15px;
-    }
-
-    button{
-        width: 100%;
-    }
-
-    .semester{
+.period-picker-popover{
+    .popover-header > .inner{
         display: flex;
+        align-items: center;
 
-        > div{
-            width: 50%;
-            padding: 5px;
+        .year{
+            flex-grow: 1;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.3rem;
+            line-height: 1;
+        }
+
+        a{
+            font-size: 1.5rem;
+            line-height: 1;
         }
     }
 
-    .quarter, .month{
-        display: flex;
-        flex-wrap: wrap;
+    .popover-body{
+        padding: .4rem;
 
-        > div{
-            width: 25%;
-            padding: 5px;
+        > .inner{
+            > div + div{
+                margin-top: .4rem;
+            }
+
+            > div > div{
+                padding: .4rem;
+            }
+
+            button{
+                display: block;
+                width: 100%;
+            }
+
+            .semester{
+                display: flex;
+
+                > div{
+                    width: 50%;
+                }
+            }
+
+            .quarter, .month{
+                display: flex;
+                flex-wrap: wrap;
+
+                > div{
+                    width: 25%;
+                }
+            }
         }
     }
 }
+
