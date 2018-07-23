@@ -1,6 +1,10 @@
 # period-picker
 
-A period picker build on the top of Bootstrap 4 and Moment.js that allow to select month, quarter, semester or full year .
+A period picker build on the top of Bootstrap 4 and Moment.js that allow to select month, quarter, semester or full year.
+
+## Demo
+
+<script async src="//jsfiddle.net/hc8zLugo/8/embed/"></script>
 
 ## Installation & requirements.
 
@@ -17,7 +21,7 @@ A period picker build on the top of Bootstrap 4 and Moment.js that allow to sele
         <title>periodPicker</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="dist/period-picker.min.css" rel="stylesheet" type="text/css"/>
+        <link href="https://cdn.rawgit.com/cariagency/period-picker/master/dist/period-picker.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <!-- *** -->
@@ -26,7 +30,7 @@ A period picker build on the top of Bootstrap 4 and Moment.js that allow to sele
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="dist/period-picker.min.js" type="text/javascript"></script>
+        <script src="https://cdn.rawgit.com/cariagency/period-picker/master/dist/period-picker.min.js" type="text/javascript"></script>
     </body>
 </html>
 ```
