@@ -10,7 +10,7 @@ Please see the [demo](https://jsfiddle.net/hc8zLugo/13/).
 
 **periodPicker** requires [jQuery](https://jquery.com/), [Bootstrap 4](https://getbootstrap.com) and [Moment.js](https://momentjs.com).  
 
-Clone or [download](https://github.com/cariagency/period-picker/archive/master.zip) the lib, or include it from CDN :
+Clone, [download](https://github.com/cariagency/period-picker/archive/master.zip), or include the lib from CDN :
 
 ```html
 <link href="https://cdn.rawgit.com/cariagency/period-picker/master/dist/period-picker.min.css" rel="stylesheet" type="text/css"/>
@@ -118,7 +118,7 @@ Example :
 
 ## Theming.
 
-Followin options allows you to customize some elements of the picker :
+Following options allows you to customize some elements of the picker :
 
 ```
 // Year button title.
