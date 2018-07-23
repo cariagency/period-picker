@@ -288,7 +288,7 @@
                         refresh($picker, $popover);
 
                         $('.period-picker-body button', $popover).click(function () {
-                            if (settings.pick($(this).data('value'), $picker, $popover) === true) {
+                            if (settings.pick($(this).data('value'), $picker, $popover) !== true) {
                                 $picker.popover('hide');
                             }
                         });
