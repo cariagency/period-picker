@@ -90,9 +90,16 @@ This must be done before periodPicker initilization.
 Example :
 
 ```js
-$.fn.periodPickerDefaults.pick = function (value) {
-    // ...
-};
+(function ($) {
+    $.fn.periodPickerDefaults.btnClass = 'btn btn-success';
+    $.fn.periodPickerDefaults.prevTemplate = '<i class="fa fa-arrow-left"></i>';
+    $.fn.periodPickerDefaults.nextTemplate = '<i class="fa fa-arrow-right"></i>';
+
+    if ($('body').attr('lang') === 'fr') {
+        $.fn.periodPickerDefaults.yearName = 'Année complète';
+        $.fn.periodPickerDefaults.quarterName = 'T';
+    }
+}(jQuery));
 ```
 
 ## Default options.
