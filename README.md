@@ -2,9 +2,7 @@
 
 A period picker build on the top of Bootstrap 4 and Moment.js that allow to select month, quarter, semester or full year.
 
-## Demo
-
-<script async src="//jsfiddle.net/hc8zLugo/8/embed/"></script>
+Please see the [demo](//jsfiddle.net/hc8zLugo/8/embed/).
 
 ## Installation & requirements.
 
