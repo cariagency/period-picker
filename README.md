@@ -2,11 +2,9 @@
 
 A period picker build on the top of Bootstrap 4 and Moment.js that allow to select month, quarter, semester or full year .
 
-## Requirements.
+## Installation & requirements.
 
 **periodPicker** requires [jQuery](https://jquery.com/), [Bootstrap 4](https://getbootstrap.com) and [Moment.js](https://momentjs.com).
-
-## Basic usage.
 
 ```html
 <!DOCTYPE html>
@@ -15,44 +13,46 @@ A period picker build on the top of Bootstrap 4 and Moment.js that allow to sele
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
         <title>periodPicker</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="dist/period-picker.css" rel="stylesheet" type="text/css"/>
+        <link href="dist/period-picker.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <button type="button" class="btn btn-primary" id="period-picker">periodPicker</button>
+        <!-- *** -->
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="dist/period-picker.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            (function ($) {
-                $('document').ready(function () {
-                    $('#period-picker').periodPicker({
-                        pick: function (value) {
-                            window.location.href = 'my/url?start=' + value.start.format('YYY-MM-DD HH:mm:ss') + '&end=' + value.end.format('YYY-MM-DD HH:mm:ss');
-                        }
-                    });
-                });
-            }(jQuery));
-        </script>
+        <script src="dist/period-picker.min.js" type="text/javascript"></script>
     </body>
 </html>
 ```
 
-## Advanced usage.
+## Usage.
 
-### Markup.
+## Basic example.
+
+```html
+<button type="button" class="btn btn-primary" id="period-picker">periodPicker</button>
+<script type="text/javascript">
+    $('#period-picker').periodPicker({
+        pick: function (value) {
+            window.location.href = 'my/url?start=' + value.start.format('YYY-MM-DD HH:mm:ss') + '&end=' + value.end.format('YYY-MM-DD HH:mm:ss');
+        }
+    });
+</script>
+```
+
+### Markup options.
 
 You can define following options using `data-xxx` attribute :
 
-+ **year** : default year (YYYY format)
-+ **min** : first selectable month (YYYY/MM format).
-+ **max** : last selectable month (YYYY/MM format).
++ **year** : default year (YYYY)
++ **min** : first selectable month (YYYY/MM).
++ **max** : last selectable month (YYYY/MM).
 
 Example :
 
@@ -65,7 +65,7 @@ Example :
 
 ### Custom options.
 
-Any of default options (see full list below) can be override when initilizing periodPicker.
+Any of default options (see full list below) can be overrided when initializing the picker.
 
 Example :
 
