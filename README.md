@@ -47,7 +47,7 @@ Example :
 
 ## Usage.
 
-## Basic example.
+### Basic example.
 
 ```html
 <button type="button" class="btn btn-primary" id="period-picker">periodPicker</button>
