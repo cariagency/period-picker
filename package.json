@@ -1,0 +1,24 @@
+{
+    "name": "period-picker",
+    "version": "1.0.0",
+    "description": "A period picker build on the top of Bootstrap 4 and Moment.js that allow to select month, quarter, semester or full year",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cariagency/period-picker.git"
+    },
+    "author": "Benjamin Gazé - Cari Agency",
+    "license": "GPL-3.0-or-later",
+    "bugs": {
+        "url": "https://github.com/cariagency/period-picker/issues"
+    },
+    "homepage": "https://github.com/cariagency/period-picker#readme",
+    "devDependencies": {
+        "gulp": "^3.9.1",
+        "gulp-autoprefixer": "^5.0.0",
+        "gulp-minify-css": "^1.2.4",
+        "gulp-rename": "^1.3.0",
+        "gulp-sass": "^4.0.1",
+        "gulp-uglify": "^3.0.0"
+    }
+}

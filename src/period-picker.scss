@@ -1,0 +1,47 @@
+#period-picker-template{ 
+    display: none;
+}
+
+.period-picker-title{
+    display: flex;
+    align-items: center;
+
+    .year{
+        flex-grow: 1;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    a{
+        font-size: 20px;
+    }
+}
+
+.period-picker-body{
+    > div + div{
+        margin-top: 15px;
+    }
+
+    button{
+        width: 100%;
+    }
+
+    .semester{
+        display: flex;
+
+        > div{
+            width: 50%;
+            padding: 5px;
+        }
+    }
+
+    .quarter, .month{
+        display: flex;
+        flex-wrap: wrap;
+
+        > div{
+            width: 25%;
+            padding: 5px;
+        }
+    }
+}
