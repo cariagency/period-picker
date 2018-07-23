@@ -8,13 +8,13 @@ Please see the [demo](https://jsfiddle.net/hc8zLugo/13/).
 
 **periodPicker** requires [jQuery](https://jquery.com/), [Bootstrap 4](https://getbootstrap.com) and [Moment.js](https://momentjs.com).  
 
-Clone or download the lib and includes dependencies then `dist/period-picker.min.css` and `dist/period-picker.min.js` into your page.  
-You can also use those CDM links :
+Clone or download the lib, or include it from CDN :
 
 ```html
 <link href="https://cdn.rawgit.com/cariagency/period-picker/master/dist/period-picker.min.css" rel="stylesheet" type="text/css"/>
 <script src="https://cdn.rawgit.com/cariagency/period-picker/master/dist/period-picker.min.js" type="text/javascript"></script>
 ```
+Includes dependencies into your page, then `dist/period-picker.min.css` and `dist/period-picker.min.js`.
 
 Example :
 
