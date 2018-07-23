@@ -253,7 +253,7 @@
         }
 
         // Prepare popover config.
-        var popover = $.extend(settings.popover, {
+        var popover = $.extend({}, settings.popover, {
             title: settings.titleTemplate
                     .replace('%P', settings.prevTemplate)
                     .replace('%N', settings.nextTemplate),
