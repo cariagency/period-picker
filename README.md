@@ -67,6 +67,7 @@ You can define following options using `data-xxx` attribute :
 + **year** : default year (YYYY)
 + **min** : first selectable month (YYYY/MM).
 + **max** : last selectable month (YYYY/MM).
++ **active** : the current active period. Must match : `/^(\d{4})(\/(0[1-9]|1[1-2]|Q[1-4]|S[1-2]))?$/`
 
 Example :
 
@@ -122,22 +123,25 @@ Following options allows you to customize some elements of the picker :
 
 ```
 // Year button title.
-yearName: 'Whole year',
+yearName: 'Whole year'
 
 // String to populate semester buttons.
-semesterName: 'S',
+semesterName: 'S'
 
 // String to populate quarter buttons.
-quarterName: 'Q',
+quarterName: 'Q'
 
 // Buttons class.
-btnClass: 'btn btn-primary',
+btnClass: 'btn btn-primary'
+
+// Active button class.
+activeClass: 'btn btn-success'
 
 // Previous year button content.
-prevTemplate: '&lt;&lt;',
+prevTemplate: '&lt;&lt;'
 
 // Next year button content.
-nextTemplate: '&gt;&gt;',
+nextTemplate: '&gt;&gt;'
 ```
 
 The plugin inserts following CSS classes on generated element to ease theming :
@@ -160,6 +164,10 @@ $.fn.periodPickerDefaults = {
     // Default year : YYYY format.
     year: false,
 
+    // Current active element. Must match : /^(\d{4})(\/(0[1-9]|1[1-2]|Q[1-4]|S[1-2]))?$/
+    // Examples : 2018 , 2014/S1 , 1981/Q3 , 1512/02
+    active: false,
+
     // Action when a picker button is clicked.
     // Return true to keep the popover opened, otherwise it will be closed.
     pick: function (value, $picker, $popover) {
@@ -175,14 +183,17 @@ $.fn.periodPickerDefaults = {
     // Year button title.
     yearName: 'Whole year',
 
-    // Strint to populate semester buttons.
+    // String to populate semester buttons.
     semesterName: 'S',
 
-    // Strint to populate quarter buttons.
+    // String to populate quarter buttons.
     quarterName: 'Q',
 
     // Buttons class.
     btnClass: 'btn btn-primary',
+
+    // Active button class.
+    activeClass: 'btn btn-success',
 
     // Previous year button content.
     prevTemplate: '&lt;&lt;',
@@ -191,14 +202,14 @@ $.fn.periodPickerDefaults = {
     nextTemplate: '&gt;&gt;',
 
     // Popover title template
-    titleTemplate: '<div class="period-picker-title">\
+    titleTemplate: '<div class="inner">\
         <a href="#" class="period-picker-prev">%P</a>\
         <div class="year"></div>\
         <a href="#" class="period-picker-next">%N</a>\
     </div>',
 
     // Popover body template.
-    bodyTemplate: '<div class="period-picker-body">\
+    bodyTemplate: '<div class="inner">\
         <div class="year">\
             <div>\
                 <button class="%C">%Y</button>\

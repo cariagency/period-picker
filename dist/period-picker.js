@@ -7,6 +7,9 @@
         max: false,
         // Default year : YYYY format.
         year: false,
+        // Current active element. Must match : /^(\d{4})(\/(0[1-9]|1[1-2]|Q[1-4]|S[1-2]))?$/
+        // Examples : 2018 , 2014/S1 , 1981/Q3 , 1512/02
+        active: false,
         // Action when a picker button is clicked.
         // Return true to keep the popover opened, otherwise it will be closed.
         pick: function (value, $picker, $popover) {
@@ -25,6 +28,8 @@
         quarterName: 'Q',
         // Buttons class.
         btnClass: 'btn btn-primary',
+        // Active button class.
+        activeClass: 'btn btn-success',
         // Previous year button content.
         prevTemplate: '&lt;&lt;',
         // Next year button content.
@@ -105,76 +110,7 @@
         </div>'
     };
 
-    // Manage picker content.
-    var refresh = function ($picker, $popover) {
-        var current = $picker.data('current');
-
-        $('.popover-header .year', $popover).text(current.format('YYYY'));
-
-        $('.popover-body > .inner .year button', $popover).data('value', {
-            type: 'year',
-            year: current.format('YYYY'),
-            start: current.clone(),
-            end: current.clone().endOf('year')
-        });
-
-        $('.popover-body > .inner .semester button', $popover).each(function () {
-            var period = parseInt($(this).data('period'));
-            $(this).data('value', {
-                type: 'semester',
-                semester: period,
-                year: current.format('YYYY'),
-                start: current.clone().quarter(period === 1 ? 1 : 3).startOf('quarter'),
-                end: current.clone().quarter(period === 1 ? 2 : 4).endOf('quarter')
-            })
-        });
-
-        $('.popover-body > .inner .quarter button', $popover).each(function () {
-            var period = parseInt($(this).data('period'));
-            $(this).data('value', {
-                type: 'quarter',
-                quarter: period,
-                year: current.format('YYYY'),
-                start: current.clone().quarter(period).startOf('quarter'),
-                end: current.clone().quarter(period).endOf('quarter')
-            })
-        });
-
-        $('.popover-body > .inner .month button', $popover).each(function () {
-            var period = parseInt($(this).data('period'));
-            $(this).data('value', {
-                type: 'month',
-                month: period,
-                year: current.format('YYYY'),
-                start: current.clone().month(period - 1).startOf('month'),
-                end: current.clone().month(period - 1).endOf('month')
-            })
-        });
-
-        var min = $picker.data('min');
-        var max = $picker.data('max');
-
-        $('.popover-body > .inner button', $popover).each(function () {
-            var value = $(this).data('value');
-            $(this).prop('disabled', (min && value.start.isBefore(min)) || (max && value.end.isAfter(max)))
-        });
-    };
-
-    // Register year switch events.
-    var switchYear = function (e) {
-        e.preventDefault();
-
-        if ($(this).prop('disabled')) {
-            return;
-        }
-
-        var $popover = $(this).parents('.period-picker-popover');
-        var $picker = $popover.data('picker');
-
-        $(this).is('.period-picker-prev') ? $picker.data('current').subtract(1, 'y') : $picker.data('current').add(1, 'y');
-
-        refresh($picker, $popover);
-    };
+    var activeRegex = /^(\d{4})(\/(0[1-9]|1[1-2]|Q[1-4]|S[1-2]))?$/;
 
     // Merge and validate setting.
     var getSettings = function (options) {
@@ -206,11 +142,20 @@
             settings.max = moment(settings.max, 'YYYY/MM').endOf('month');
         }
 
+        if (settings.active) {
+            if (!activeRegex.test(settings.active)) {
+                console.error('[Period picker] Invalid value for active option : ' + settings.active);
+                return false;
+            }
+        }
+
         return settings;
     };
 
     // Validate markup options.
     var getPicker = function ($picker, settings) {
+        $picker.settings = settings;
+
         if ($picker.data('year')) {
             if (!moment($picker.data('year'), 'YYYY', true).isValid()) {
                 console.error('[Period picker] Invalid value for data-year option : ' + $picker.data('year'));
@@ -241,7 +186,91 @@
             $picker.data('max', settings.max ? settings.max.clone() : false);
         }
 
+        if ($picker.data('active')) {
+            if (!activeRegex.test($picker.data('active'))) {
+                console.error('[Period picker] Invalid value for active option : ' + $picker.data('active'));
+                return false;
+            }
+        } else {
+            $picker.data('active', settings.active);
+        }
+
         return $picker;
+    };
+
+    // Register year switch events.
+    var switchYear = function (e) {
+        e.preventDefault();
+
+        if ($(this).prop('disabled')) {
+            return;
+        }
+
+        var $popover = $(this).parents('.period-picker-popover');
+        var $picker = $popover.data('picker');
+
+        $(this).is('.period-picker-prev') ? $picker.data('current').subtract(1, 'y') : $picker.data('current').add(1, 'y');
+
+        refresh($picker, $popover);
+    };
+
+    // Manage picker content.
+    var refresh = function ($picker, $popover) {
+        var current = $picker.data('current');
+        var year = current.format('YYYY');
+
+        $('.popover-header .year', $popover).text(current.format('YYYY'));
+
+        $('.popover-body > .inner .year button', $popover).data('value', {
+            type: 'year',
+            year: year,
+            start: current.clone(),
+            end: current.clone().endOf('year')
+        }).data('slug', year);
+
+        $('.popover-body > .inner .semester button', $popover).each(function () {
+            var period = parseInt($(this).data('period'));
+            $(this).data('value', {
+                type: 'semester',
+                semester: period,
+                year: year,
+                start: current.clone().quarter(period === 1 ? 1 : 3).startOf('quarter'),
+                end: current.clone().quarter(period === 1 ? 2 : 4).endOf('quarter')
+            }).data('slug', year + '/S' + period);
+        });
+
+        $('.popover-body > .inner .quarter button', $popover).each(function () {
+            var period = parseInt($(this).data('period'));
+            $(this).data('value', {
+                type: 'quarter',
+                quarter: period,
+                year: year,
+                start: current.clone().quarter(period).startOf('quarter'),
+                end: current.clone().quarter(period).endOf('quarter')
+            }).data('slug', year + '/Q' + period);
+        });
+
+        $('.popover-body > .inner .month button', $popover).each(function () {
+            var period = parseInt($(this).data('period'));
+            $(this).data('value', {
+                type: 'month',
+                month: period,
+                year: year,
+                start: current.clone().month(period - 1).startOf('month'),
+                end: current.clone().month(period - 1).endOf('month')
+            }).data('slug', year + '/' + ('0' + period).substr(-2));
+        });
+
+        var min = $picker.data('min');
+        var max = $picker.data('max');
+
+        $('.popover-body > .inner button', $popover).each(function () {
+            var value = $(this).data('value');
+            $(this).prop('disabled', (min && value.start.isBefore(min)) || (max && value.end.isAfter(max)))
+
+            var active = ($(this).data('slug') === $picker.data('active'));
+            $(this).attr('class', active ? $picker.settings.activeClass : $picker.settings.btnClass);
+        });
     };
 
     // periodPicker plugin.
