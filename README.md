@@ -2,7 +2,7 @@
 
 A period picker build on the top of Bootstrap 4 and Moment.js that allow to select month, quarter, semester or full year.
 
-Please see the [demo](https://jsfiddle.net/bgaze_cari/14q2fy83/).
+Please see the [demo](https://jsfiddle.net/bgaze_cari/c7tvsy5z/).
 
 ![Cari periodPicker](http://i.imgur.com/M8nQZNb.png)
 
