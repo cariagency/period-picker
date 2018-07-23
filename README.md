@@ -101,38 +101,50 @@ $.fn.periodPickerDefaults.pick = function (value) {
 $.fn.periodPickerDefaults = {
     // Min month : YYYY/MM format.
     min: false,
+
     // Max month : YYYY/MM format.
     max: false,
+
     // Default year : YYYY format.
     year: false,
+
     // Action when a picker button is clicked.
     // Return true to keep the popover opened, otherwise it will be closed.
     pick: function (value, $picker, $popover) {
         console.log(value);
     },
+
     // Options to pass to Bootstrap 4 popover.
     // Following options WILL be ignored : title, content, html
     popover: {
         placement: 'bottom',
     },
+
     // Year button title.
     yearName: 'Whole year',
+
     // Strint to populate semester buttons.
     semesterName: 'S',
+
     // Strint to populate quarter buttons.
     quarterName: 'Q',
+
     // Buttons class.
     btnClass: 'btn btn-primary',
+
     // Previous year button content.
     prevTemplate: '&lt;&lt;',
+
     // Next year button content.
     nextTemplate: '&gt;&gt;',
+
     // Popover title template
     titleTemplate: '<div class="period-picker-title">\
         <a href="#" class="period-picker-prev">%P</a>\
         <div class="year"></div>\
         <a href="#" class="period-picker-next">%N</a>\
     </div>',
+
     // Popover body template.
     bodyTemplate: '<div class="period-picker-body">\
         <div class="year">\
