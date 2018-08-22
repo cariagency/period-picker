@@ -13,8 +13,8 @@ Please see the [demo](https://jsfiddle.net/bgaze_cari/c7tvsy5z/).
 Clone, [download](https://github.com/cariagency/period-picker/archive/master.zip), or include the lib from CDN :
 
 ```html
-<link href="https://cdn.rawgit.com/cariagency/period-picker/master/dist/period-picker.min.css" rel="stylesheet" type="text/css"/>
-<script src="https://cdn.rawgit.com/cariagency/period-picker/master/dist/period-picker.min.js" type="text/javascript"></script>
+<link href="https://cdn.jsdelivr.net/gh/cariagency/period-picker@1/dist/period-picker.min.css" rel="stylesheet" type="text/css"/>
+<script src="https://cdn.jsdelivr.net/gh/cariagency/period-picker@1/dist/period-picker.min.js" type="text/javascript"></script>
 ```
 Includes dependencies into your page, then `dist/period-picker.min.css` and `dist/period-picker.min.js`.
 
@@ -31,7 +31,7 @@ Example :
         <title>periodPicker</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="https://cdn.rawgit.com/cariagency/period-picker/master/dist/period-picker.min.css" rel="stylesheet" type="text/css"/>
+        <link href="https://cdn.jsdelivr.net/gh/cariagency/period-picker@1/dist/period-picker.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <!-- *** -->
@@ -40,7 +40,7 @@ Example :
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="https://cdn.rawgit.com/cariagency/period-picker/master/dist/period-picker.min.js" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/gh/cariagency/period-picker@1/dist/period-picker.min.js" type="text/javascript"></script>
     </body>
 </html>
 ```
