@@ -7,7 +7,7 @@
         max: false,
         // Default year : YYYY format.
         year: false,
-        // Current active element. Must match : /^(\d{4})(\/(0[1-9]|1[1-2]|Q[1-4]|S[1-2]))?$/
+        // Current active element. Must match : /^(\d{4})(\/(0[1-9]|1[0-2]|Q[1-4]|S[1-2]))?$/
         // Examples : 2018 , 2014/S1 , 1981/Q3 , 1512/02
         active: false,
         // Action when a picker button is clicked.
@@ -110,7 +110,7 @@
         </div>'
     };
 
-    var activeRegex = /^(\d{4})(\/(0[1-9]|1[1-2]|Q[1-4]|S[1-2]))?$/;
+    var activeRegex = /^(\d{4})(\/(0[1-9]|1[0-2]|Q[1-4]|S[1-2]))?$/;
 
     // Merge and validate setting.
     var getSettings = function (options) {
